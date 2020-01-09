@@ -7,6 +7,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -150,6 +152,12 @@ public class SaveUtils {
         addToArrayList(context, SSIDS_KEY, profile.ssid);
         addToArrayList(context, PASSWORDS_KEY, nonEmpty(profile.password));
         addToArrayList(context, OPTIONS_KEY, nonEmpty(profile.option));
+    }
+
+    public static void addProfile(NetworkProfile networkProfile) {
+        Gson gson = new Gson();
+        String json = gson.toJson(networkProfile);
+
     }
 
     public static HashMap<String, List<NetworkProfile>> getProfiles(Context context) {
