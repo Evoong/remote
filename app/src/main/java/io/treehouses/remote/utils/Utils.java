@@ -3,14 +3,14 @@ package io.treehouses.remote.utils;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.provider.Settings.Secure;
 import android.widget.Toast;
 
 import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.List;
-import android.provider.Settings.Secure;
+
+import androidx.fragment.app.FragmentActivity;
 
 public class Utils {
     public static void copyToClipboard(Context context, String clickedData) {
@@ -59,4 +59,7 @@ public class Utils {
         return res1.toString();
     }
 
+    public static void toast(Context context, String s) {
+        Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+    }
 }
